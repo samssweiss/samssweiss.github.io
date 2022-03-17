@@ -53,9 +53,12 @@
   </style>
 </head>
 <body>
-  <div onclick="test">click</div>
+  <div id="btn">click</div>
   <script>
       new VConsole();
+      document.querySelector('#btn').addEventListener('click',() => {
+        console.log('hhhh')
+      })
       window.test = () => {
         console.log(2222)
       }
