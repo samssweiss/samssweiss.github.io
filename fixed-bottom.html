@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html,
+    body,
+    .main {
+      height: 100%;
+      background-color: gray;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .header {
+      height: 170px;
+      background-color: lightblue;
+    }
+    
+    .content {
+      height: calc(100vh - 370px);
+      /* height: 200px; */
+      background-color: lightcoral;
+      overflow-y: auto;
+    }
+    
+    .content2 {
+      height: 1000px;
+      background-color: lightgreen;
+    }
+    
+    
+    .footer {
+      position: fixed;
+      height: 70px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: lightgoldenrodyellow;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <div class="header">header</div>
+    <div class="content">
+      <div class="content2">content</div>
+    </div>
+  </div>
+  <div class="footer">footer</div>
+</body>
+</html>
