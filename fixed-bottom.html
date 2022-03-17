@@ -53,11 +53,13 @@
   </style>
 </head>
 <body>
-  <div id="btn">click232-223</div>
+  <div id="btn">click232-2233</div>
   <script>
+    var a = 0
       new VConsole();
       document.querySelector('#btn').addEventListener('click',() => {
-        document.body.style.zoom = document.body.style.zoom > 1? document.body.style.zoom -1 :document.body.style.zoom + 1
+        a= a+0.5
+        document.body.style.zoom = a
         console.log('hhhh')
       })
       window.test = () => {
