@@ -9,6 +9,8 @@
     html,
     body,
     .main {
+      -webkit-text-size-adjust: 100%;
+      -webkit-touch-callout: none;
       height: 100%;
       background-color: gray;
       margin: 0;
@@ -51,8 +53,12 @@
   </style>
 </head>
 <body>
+  <div onclick="test">click</div>
   <script>
-     new VConsole();
+      new VConsole();
+      window.test = () => {
+        console.log(2222)
+      }
   </script>
   <div class="main">
     <div class="main2">
