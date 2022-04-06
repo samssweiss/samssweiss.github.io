@@ -21,8 +21,8 @@
     }
     
     .content {
-      height: calc(100vh - 370px);
-      height: 200px;
+      height: calc(100vh - 170px);
+      /* height: 200px; */
       background-color: lightcoral;
       overflow-y: auto;
     }
@@ -40,7 +40,7 @@
       right: 0;
       bottom: 0;
       background-color: lightgoldenrodyellow;
-      z-index: 9999;
+      z-index: 99;
     }
     
     .main2 {
@@ -51,13 +51,17 @@
 </head>
 <body>
   <div class="main">
-    <div class="main2">
-      <div class="header">header-1712</div>
-      <div class="content">
-        <div class="content2">content</div>
+    <div style="display: flex; flex-direction: column;">
+      <div>
+        <div class="main2" style="flex: 1;">
+          <div class="header">header-1713</div>
+          <div class="content">
+            <div class="content2">content</div>
+          </div>
+        </div>
+        <div class="footer">footer</div>
       </div>
     </div>
-    <div class="footer">footer</div>
   </div>
 </body>
 </html>
