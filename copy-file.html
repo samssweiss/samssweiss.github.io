@@ -6,26 +6,39 @@
     <title>Document</title>
   </head>
   <body>
+    <input id="file" type="file" />
     <div id="copy">click me</div>
-    <script>
-      async function getFile() {
-        // Open file picker and destructure the result the first handle
-        const [fileHandle] = await window.showOpenFilePicker()
-        const file = await fileHandle.getFile()
-        return file
-      }
-      console.log(22)
-      document.querySelector('#copy').addEventListener('click', async () => {
-        const res = await getFile()
-        console.log(333, res)
 
+    <script>
+      document.querySelector('#copy').addEventListener('click', async () => {
+        const res = document.querySelector('#file')
+        console.log(333, res.files[0])
         const reader = new FileReader()
         reader.onload = (evt) => {
-          // console.log(evt.target.result)
+          console.log(evt.target.result)
           navigator.clipboard.writeText(evt.target.result)
         }
-        reader.readAsText(res)
+        reader.readAsText(res.files[0])
       })
+
+      // async function getFile() {
+      //   // Open file picker and destructure the result the first handle
+      //   const [fileHandle] = await window.showOpenFilePicker()
+      //   const file = await fileHandle.getFile()
+      //   return file
+      // }
+      // console.log(22)
+      // document.querySelector('#copy').addEventListener('click', async () => {
+      //   const res = await getFile()
+      //   console.log(333, res)
+
+      //   const reader = new FileReader()
+      //   reader.onload = (evt) => {
+      //     // console.log(evt.target.result)
+      //     navigator.clipboard.writeText(evt.target.result)
+      //   }
+      //   reader.readAsText(res)
+      // })
     </script>
   </body>
 </html>
