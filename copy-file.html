@@ -5,103 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://unpkg.com/clipboard@2/dist/clipboard.min.js"></script>
+    <style>
+      .container {
+      }
+      .box {
+        margin-bottom: 20px;
+      }
+    </style>
   </head>
   <body>
-    <input id="file" type="file" />
-    <br />
-    <br />
-    <br />
-    <div id="copy">click me</div>
-    <br />
-
-    <div id="copy2">click me2</div>
-    <br />
-
-    <div>88</div>
-
-    <textarea name="" id="textarea" cols="100" rows="100"></textarea>
-    <br />
-
+    <div class="container">
+      <div class="box">
+          <input id="file" type="file" />
+      </div>
+      
+      <div class="box">
+        <button class="btn" data-clipboard-target="#textarea">copy</button>
+      </div>
+      
+      <div class="box">
+        <div>988</div>
+      </div>
+      
+      
+      
+      <div class="box">
+        <textarea id="textarea" cols="70" rows="40"></textarea>
+      </div>
+      
+      
+      
+      
     <script>
-      document.querySelector("#copy").addEventListener("click", async () => {
-        const res = document.querySelector("#file");
-        console.log(333, res.files[0]);
+      document.querySelector('#file').addEventListener("change", (e) => {
+        const textarea = document.querySelector('#textarea')
+        textarea.value = ''
+        // console.log(2323, e.target.files[0])
+        const file = e.target.files[0]
         const reader = new FileReader();
         reader.onload = (evt) => {
-          document.querySelector('#textarea').value = evt.target.result
-          // console.log(evt.target.result);
-          // if (!navigator.clipboard) {
-          //   console.log(444)
-          //   fallback(evt.target.result);
-          // } else {
-          //   navigator.clipboard.writeText(evt.target.result);
-          // }
+          setTimeout(() => {
+            textarea.value = evt.target.result
+          }, 500)
         };
-        reader.readAsText(res.files[0]);
-      });
+        reader.readAsText(file);
+      })
+      
+      
+      new ClipboardJS('.btn');
+  
 
-      document.querySelector("#copy2").addEventListener("click", async () => {
-        if (!navigator.clipboard) {
-          console.log(6666)
-          fallback("787899");
-        } else {
-          navigator.clipboard.writeText("787899");
-        }
-        console.log(344);
-      });
-
-      // async function getFile() {
-      //   // Open file picker and destructure the result the first handle
-      //   const [fileHandle] = await window.showOpenFilePicker()
-      //   const file = await fileHandle.getFile()
-      //   return file
-      // }
-      // console.log(22)
-      // document.querySelector('#copy').addEventListener('click', async () => {
-      //   const res = await getFile()
-      //   console.log(333, res)
-
-      //   const reader = new FileReader()
-      //   reader.onload = (evt) => {
-      //     // console.log(evt.target.result)
-      //     navigator.clipboard.writeText(evt.target.result)
-      //   }
-      //   reader.readAsText(res)
-      // })
-
-      const fallback = (text) => {
-        const isIos = navigator.userAgent.match(/ipad|iphone/i);
-        const textarea = document.createElement("textarea");
-
-        // create textarea
-        textarea.value = text;
-        console.log(77711, textarea.value)
-
-        // ios will zoom in on the input if the font-size is < 16px
-        textarea.style.fontSize = "20px";
-        document.body.appendChild(textarea);
-
-        // select text
-        if (isIos) {
-          const range = document.createRange();
-          range.selectNodeContents(textarea);
-
-          const selection = window.getSelection();
-          selection.removeAllRanges();
-          selection.addRange(range);
-          textarea.setSelectionRange(0, 99999999);
-        } else {
-          textarea.select();
-        }
-
-        // copy selection
-        document.execCommand("copy");
-        console.log(777777)
-        
-
-        // cleanup
-        // document.body.removeChild(textarea);
-      };
+    
     </script>
   </body>
 </html>
